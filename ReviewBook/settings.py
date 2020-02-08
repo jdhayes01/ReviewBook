@@ -25,7 +25,7 @@ SECRET_KEY = 'ex)1rxlw)3rek-!kzr(z5cy+)wr%u#el2skwyukodxm8l=2ha2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -70,13 +71,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ReviewBook.wsgi.application'
 
 
-# Database
+# Database admin ReviewBook2020
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ReviewBookDB',
+        'USER': 'admin',
+        'PASSWORD': 'ReviewBook2020',
+        'HOST': 'reviewbook-db.c89qbdg3opiw.us-west-2.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
