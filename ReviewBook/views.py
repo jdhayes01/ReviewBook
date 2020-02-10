@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 
 def login(request):
@@ -22,3 +22,7 @@ def signup(request): #signup form request
     else: #if not then show form
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+def logout(request):
+    logout(request)
+    return redirect('/login')
