@@ -8,7 +8,7 @@ def login(request):
     if request.user.is_authenticated: #if auth then redirect to dashboard
         return redirect('/dashboard')
     else:
-        return redirect('/login') #else send to login page
+        return redirect('/auth/login') #else send to login page
 
 def signup(request): #signup form request
     if request.method == 'POST': #if form is being submitted
@@ -26,4 +26,4 @@ def signup(request): #signup form request
 
 def logout(request):
     log_out(request)
-    return redirect('/login')
+    return redirect('/auth/login') #return to login page

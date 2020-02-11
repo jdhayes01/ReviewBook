@@ -19,9 +19,9 @@ from ReviewBook import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('^', include('django.contrib.auth.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
     path('', views.login, name='login'),
-    path(r'^dashboard/$', include('dashboard.urls')),
-    path(r'^logout/$', views.logout, name='logout'),
-    path(r'^signup/$', views.signup, name='signup'),
+    path('dashboard/', include('dashboard.urls')),
+    path('logout/', views.logout, name='logout'),
+    path('signup/', views.signup, name='signup'),
 ]
