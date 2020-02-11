@@ -128,3 +128,5 @@ STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'dashboard/static')]
 
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/dashboard'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  
