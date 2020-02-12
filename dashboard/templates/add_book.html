@@ -14,13 +14,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">Home</a>
+              <a class="nav-link" href="{% url 'dashboard' %}">Home</a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="{% url 'user_profile' %}">Profile</a>
             </li>
           </ul>
             <a href="{% url 'logout' %}" class="btn btn-outline-success my-2 my-sm-0"> logout</a>
@@ -30,28 +27,19 @@
 
     <!-- Begin page content -->
     <main role="main" class="container">
-      <div class="row">
+      <!-- Begin add book widget -->
+      <div class="row mt-5">
         <div class="col-sm-3">
         </div>
-        <div class="col-sm-6 text-center">
-        <h2>Welcome to ReviewBook, {{ name }}</h2>
+        <div class="col-sm-6 formField formBackground">
+          <h3 class="text-center">Book Details</h3>
+          {{ form }}
+          <button class="btn btn-outline-light btn-lg btn-block mt-2" type="submit">Add Book</button>
         </div>
         <div class="col-sm-3">
-        </div>
+        </div> 
       </div>
-      <div class="row">
-        <!-- Begin add book widget -->
-        <div class="col-sm-6 widgetBackground">
-          <div class="row">
-            <a href="{% url 'add_book' %}" ><img class="float-left" src="https://img.icons8.com/color/48/000000/add.png"></a>
-          </div>
-            <ul>
-              <li>record</li>
-              <li>record</li>
-            </ul>
-        </div>
-        <!-- End add book widget -->
-      </div>
+      <!-- End add book widget -->
     </main>
 
     <footer class="footer">

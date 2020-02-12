@@ -3,10 +3,15 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from dashboard.models import Book
+from dashboard.forms import BookForm
 
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard.html', {})
+    user = request.user
+    return render(request, 'dashboard.html', {
+        'name':user
+        })
 
 def change_pass(request):
     if request.method == 'POST':
@@ -23,3 +28,15 @@ def change_pass(request):
     return render(request, 'change_password.html', {
         'form': form
     })
+
+def add_book(request):
+	form = BookForm()
+	return render(request, 'add_book.html', {
+        'form': form
+    })
+
+def user_profile(request):
+    user = request.user
+    return render(request, 'user_profile.html', {
+        'name':user
+        })

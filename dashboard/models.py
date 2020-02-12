@@ -22,11 +22,17 @@ class Book(models.Model):
 	author = models.CharField('Book Author', max_length=120)
 	genre = models.CharField(max_length=40, choices=genre_choices, default='nonfiction')
 
+	def __str__(self):
+		return self.name
+
 
 #Books added by users with their corresponding book_id and user_id
 class BookAdded(models.Model):
-	book_id = models.IntegerField()
-	user_id = models.IntegerField()
+	book_id = models.ForeignKey(
+        'Book',
+        on_delete=models.PROTECT,
+    )
+	user_id = models.IntegerField() 
 
 #Review added by users with their correspond user_id
 class Reviews(models.Model):

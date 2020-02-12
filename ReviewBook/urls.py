@@ -16,12 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from ReviewBook import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('django.contrib.auth.urls')),
-    path('', views.login, name='login'),
+    path('', views.index, name='index'),
+    path('login/', views.login, name='login'),
     path('dashboard/', include('dashboard.urls')),
     path('logout/', views.logout, name='logout'),
     path('signup/', views.signup, name='signup'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

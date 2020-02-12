@@ -34,7 +34,7 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-6 text-center">
-        <h2>Welcome to ReviewBook, {{ name }}</h2>
+        <h2>User Profile: {{ name }}</h2>
         </div>
         <div class="col-sm-3">
         </div>
@@ -51,6 +51,11 @@
             </ul>
         </div>
         <!-- End add book widget -->
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <a href="{% url 'change_pass' %}" class="btn btn-primary btn-lg btn-logout btn-block"> Change Password</a>
+        </div>
       </div>
     </main>
 

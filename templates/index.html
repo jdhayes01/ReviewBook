@@ -19,11 +19,8 @@
             <li class="nav-item ">
               <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="{% url 'user_profile' %}">Profile</a>
-            </li>
           </ul>
-            <a href="{% url 'logout' %}" class="btn btn-outline-success my-2 my-sm-0"> logout</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-success my-2 my-sm-0">Login</a>
         </div>
       </nav>
     </header>
@@ -34,7 +31,7 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-6 text-center">
-        <h2>Welcome to ReviewBook, {{ name }}</h2>
+        <h2>Welcome to ReviewBook</h2>
         </div>
         <div class="col-sm-3">
         </div>
@@ -42,8 +39,8 @@
       <div class="row">
         <!-- Begin add book widget -->
         <div class="col-sm-6 widgetBackground">
-          <div class="row">
-            <a href="{% url 'add_book' %}" ><img class="float-left" src="https://img.icons8.com/color/48/000000/add.png"></a>
+          <div class="row text-center">
+            <h4>Popular Books</h4>
           </div>
             <ul>
               <li>record</li>
@@ -51,6 +48,11 @@
             </ul>
         </div>
         <!-- End add book widget -->
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <a href="{% url 'change_pass' %}" class="btn btn-primary btn-lg btn-logout btn-block"> Change Password</a>
+        </div>
       </div>
     </main>
 

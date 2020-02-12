@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import logout as log_out
 from django.contrib.auth.forms import UserCreationForm
 
+def index(request):
+    return render(request, 'index.html')
+
 def login(request):
     if request.user.is_authenticated: #if auth then redirect to dashboard
         return redirect('/dashboard')
@@ -26,4 +29,4 @@ def signup(request): #signup form request
 
 def logout(request):
     log_out(request)
-    return redirect('/auth/login') #return to login page
+    return redirect('/') #return to home page
