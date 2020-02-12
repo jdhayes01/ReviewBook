@@ -28,11 +28,9 @@ class Book(models.Model):
 
 #Books added by users with their corresponding book_id and user_id
 class BookAdded(models.Model):
-	book_id = models.ForeignKey(
-        'Book',
-        on_delete=models.PROTECT,
-    )
-	user_id = models.IntegerField() 
+	id = models.AutoField(primary_key=True)
+	book_title = models.CharField('Book Title', max_length=120, default='Default') 
+	user = models.CharField('user', max_length=120, default='Default') 
 
 #Review added by users with their correspond user_id
 class Reviews(models.Model):

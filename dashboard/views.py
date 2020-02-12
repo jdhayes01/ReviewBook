@@ -3,7 +3,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from dashboard.models import Book
+from dashboard.models import Book, BookAdded
 from dashboard.forms import BookForm
 
 @login_required
@@ -30,8 +30,19 @@ def change_pass(request):
     })
 
 def add_book(request):
-	form = BookForm()
-	return render(request, 'add_book.html', {
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            title = request.POST.get('title', '')
+            book_added = BookAdded(book_title = title, user = request.user)
+            book_added.save()
+            return redirect('dashboard')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = BookForm()
+    return render(request, 'add_book.html', {
         'form': form
     })
 
