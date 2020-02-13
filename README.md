@@ -20,8 +20,8 @@ Book review web application built mainly in Django, bootstrap, and mySQL.
   * Users can rate their books on a scale of 1 to 5 -- COMPLETED
   * A list of books can only be viewed by its owner -- COMPLETED
 ### Dashboard
-  * The dashboard displays the top 5 highest rated books
+  * The dashboard displays the top 5 highest rated books -- COMPLETED
   * The dashboard displays the top 5 most read books -- COMPLETED
-  * The dashboard displays the 5 books added most recently
+  * The dashboard displays the 5 books added most recently -- COMPLETED
   * Both visitors and authenticated users can view the dashboard -- COMPLETED
 
