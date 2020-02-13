@@ -3,6 +3,7 @@ from django.contrib.auth import login as log_in
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout as log_out
 from django.contrib.auth.forms import UserCreationForm
+from ReviewBook.forms import SignUpForm
 
 def index(request):
     return render(request, 'index.html')
@@ -15,7 +16,7 @@ def login(request):
 
 def signup(request): #signup form request
     if request.method == 'POST': #if form is being submitted
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -24,7 +25,7 @@ def signup(request): #signup form request
             log_in(request, user)
             return redirect('/dashboard')
     else: #if not then show form
-        form = UserCreationForm()
+        form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
 def logout(request):

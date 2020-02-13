@@ -2,18 +2,65 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block page_content %}
-<link rel="stylesheet" type="text/css" href='{% static "css/login.css" %}'>
-<div class="text-center">
-	<h2>ReviewBook Login</h2>
-	<form class="form-signin" method="post">
-	  <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-	  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+<link rel="stylesheet" type="text/css" href='{% static "css/style.css" %}'>
 
-	  {% csrf_token %}
-	  {{ form.as_p }}
 
-	  <button class="btn btn-lg btn-primary " type="submit">Sign in</button>
-	  <a href="/signup">Click Here to Sign Up</a>
-	</form>
-</div>
+    <div class="welcomePage container main-content" id="container">
+        <div class="form-container sign-up-container">
+
+            <form id="newAccountContact-form" method="post" action="{% url 'signup' %}">
+                <h6>Sign Up</h6>  
+                <h3>ReviewBook</h3>
+                <div class="formField">
+                    {% csrf_token %}
+                    <input type="text" name="username" maxlength="30" autofocus placeholder="Username" required id="id_username">
+                    <input type="email" name="email" maxlength="200" placeholder="Email" required id="id_email">
+                    <input type="password" name="password1" autocomplete="new-password" placeholder="Password" required id="id_password1">
+                    <input type="password" name="password2" autocomplete="new-password" placeholder="Confirm Password" required id="id_password2">
+                </div>
+
+                <input class="btn btn-success btn-send requestBtn" type="submit" value="Send Request">
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form method="post" class="welcome_left">
+                <h6>Log In</h6>  
+                <h3>ReviewBook</h3>
+                <div class="formField">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+                <button class="btn btn-lg btn-primary " type="submit">Sign in</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h4>Already have an account?</h4>
+                    <button class="ghost" id="signIn">Login</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h4>Need an account?</h4>
+                    <button class="ghost" id="signUp">SignUp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Welcome Page Login/Signup Sliding Triggers
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+    </script>
 {% endblock %}
+
+   
