@@ -5,16 +5,22 @@ from django.contrib.auth import logout as log_out
 from django.contrib.auth.forms import UserCreationForm
 from ReviewBook.forms import SignUpForm
 from dashboard.models import Book
-from django.db.models import Count
+from django.db.models import Count, Max
 
 def index(request):
     try:
-        books = Book.objects.values('title', 'author').annotate(title_count=Count('*')).order_by('-title_count')
+        books = Book.objects.values('title', 'author').annotate(title_count=Count('*')).order_by('-title_count')[:5]
+        ratedBooks = Book.objects.all().order_by('-rating')[:5]
+        recentBooks =  Book.objects.all().order_by('-created_at')[:5]
     except:
         books = None
+        ratedBooks = None
+        recentBooks = None
     auth = request.user.is_authenticated
     return render(request, 'index.html',{
         'books':books,
+        'ratedBooks':ratedBooks,
+        'recentBooks':recentBooks,
         'auth':auth
         })
 
