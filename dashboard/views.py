@@ -76,3 +76,9 @@ def book_profile(request, *args, **kwargs):
         'form': form,
         'book_title':book.title
     })
+
+def delete_book(request, *args, **kwargs):
+    bookTitle = kwargs['book_title']
+    book = Book.objects.get(title=bookTitle, user=request.user)
+    book.delete()
+    return redirect('dashboard')

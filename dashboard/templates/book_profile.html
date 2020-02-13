@@ -16,12 +16,26 @@
           <h3 class="text-center">Book Details</h3>
           <form action="{% url 'book_profile' book_title %}" method="POST">
             {% csrf_token %}
+            {{ form.non_field_errors }}
             <label>{{ form.title.label }}:</label>{{ form.title }}
             <label>{{ form.author.label}}:</label>{{ form.author}}
             <label>{{ form.genre.label}}:</label>{{ form.genre}}
             <label>{{ form.rating.label}}:</label>{{ form.rating}}
+            {% if form.rating.errors %}
+                {% for error in form.rating.errors %}
+                    <p style="color: #f0671d"><strong>{{ error|escape }}</strong></p>
+                {% endfor %}
+                </ol>
+            {% endif %}
             <label>{{ form.review_desc.label}}:</label>{{ form.review_desc}}
-            <button class="btn btn-outline-light btn-lg btn-block mt-2" type="submit">Edit Book</button>
+            <div class="row">
+              <div class="col-sm-6">
+                <button class="btn btn-outline-light btn-lg btn-block mt-2" type="submit">Edit Book</button>
+              </div>
+              <div class="col-sm-6">
+                <a class="btn btn-danger btn-lg btn-block mt-2" href="{% url 'delete_book' book_title %}">Delete Book</a>
+              </div>
+            </div>
           </form>
         </div>
         <div class="col-sm-3">

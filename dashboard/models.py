@@ -24,7 +24,7 @@ class Book(models.Model):
 	genre = models.CharField(max_length=40, choices=genre_choices, default='nonfiction')
 	user = models.CharField('user', max_length=120, default='Default')
 	created_at = models.DateTimeField(auto_now_add=True)
-	rating = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(10)])
+	rating = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)])
 	review_desc =models.TextField(default='Enter Description Here')
 
 	def __str__(self):
