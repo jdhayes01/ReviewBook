@@ -1,5 +1,6 @@
 from django.db import models
-
+from datetime import datetime
+from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 #All books added by users stored as unique records
 class Book(models.Model):
@@ -22,16 +23,9 @@ class Book(models.Model):
 	author = models.CharField('Book Author', max_length=120)
 	genre = models.CharField(max_length=40, choices=genre_choices, default='nonfiction')
 	user = models.CharField('user', max_length=120, default='Default')
+	created_at = models.DateTimeField(auto_now_add=True)
+	rating = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(10)])
+	review_desc =models.TextField(default='-no description entered-')
 
 	def __str__(self):
 		return self.name
-
-
-#Review added by users with their correspond user_id
-class Reviews(models.Model):
-	#model fields
-	review_id = models.AutoField(primary_key=True)
-	book_id = models.IntegerField()
-	user_id = models.IntegerField()
-	rating = models.IntegerField()
-	review_desc =models.TextField()
