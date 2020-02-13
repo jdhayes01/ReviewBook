@@ -19,7 +19,7 @@
                     <input type="password" name="password2" autocomplete="new-password" placeholder="Confirm Password" required id="id_password2">
                 </div>
 
-                <input class="btn btn-success btn-send requestBtn" type="submit" value="Send Request">
+                <input class="btn btn-success btn-send requestBtn" type="submit" value="Sign Up">
             </form>
         </div>
         <div class="form-container sign-in-container">
@@ -28,7 +28,8 @@
                 <h3>ReviewBook</h3>
                 <div class="formField">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    <input type="text" name="username" autofocus autocapitalize="none" placeholder="username" autocomplete="username" maxlength="150" required id="id_username">
+                    <input type="password" name="password" autocomplete="current-password" placeholder="password" required id="id_password">
                 </div>
                 <button class="btn btn-lg btn-primary " type="submit">Sign in</button>
             </form>

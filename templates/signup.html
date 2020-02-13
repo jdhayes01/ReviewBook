@@ -1,21 +1,57 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block page_content %}]
+<link rel="stylesheet" type="text/css" href='{% static "css/dashboard.css" %}'>
+<body>
 
-{% block page_content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    <button type="submit">Sign up</button>
-  </form>
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">ReviewBook</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+            </li>
+          </ul>
+            <a href="{% url 'login' %}" class="btn btn-outline-success my-2 my-sm-0">Login</a>
+        </div>
+      </nav>
+    </header>
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <div class="row my-1">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6 formField formBackground">
+          <h3>Sign Up</h3>  
+          <form action="{% url 'signup' %}" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+              <p>
+                {{ field.label_tag }}<br>
+                {{ field }}
+                {% if field.help_text %}
+                  <small style="color: white">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                  <p style="color: #f0671d">{{ error }}</p>
+                {% endfor %}
+              </p>
+            {% endfor %}
+            <button class="btn btn-outline-light btn-lg btn-block mt-2" type="submit">Sign Up</button>
+          </form>
+        </div>
+        <div class="col-sm-3">
+        </div> 
+      </div>
+      </main>
+  </body>
 {% endblock %}
+
