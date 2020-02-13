@@ -3,14 +3,19 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from dashboard.models import Book, BookAdded
+from dashboard.models import Book
 from dashboard.forms import BookForm
 
 @login_required
 def dashboard(request):
-    user = request.user
+    username = request.user
+    try:
+        books = Book.objects.all().filter(user=username)
+    except:
+        books = None
     return render(request, 'dashboard.html', {
-        'name':user
+        'name':username,
+        'books':books
         })
 
 def change_pass(request):
@@ -35,15 +40,14 @@ def add_book(request):
         if form.is_valid():
             form.save()
             title = request.POST.get('title', '')
-            book_added = BookAdded(book_title = title, user = request.user)
-            book_added.save()
             return redirect('dashboard')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
         form = BookForm()
     return render(request, 'add_book.html', {
-        'form': form
+        'form': form,
+        'user':request.user
     })
 
 def user_profile(request):

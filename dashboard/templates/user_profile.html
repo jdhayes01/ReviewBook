@@ -4,29 +4,7 @@
 <link rel="stylesheet" type="text/css" href='{% static "css/dashboard.css" %}'>
 <body>
 
-    <header>
-      <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">ReviewBook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">Home</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="{% url 'user_profile' %}">Profile</a>
-            </li>
-          </ul>
-            <a href="{% url 'logout' %}" class="btn btn-outline-success my-2 my-sm-0"> logout</a>
-        </div>
-      </nav>
-    </header>
+   {% include "navbar_dash.html" %}
 
     <!-- Begin page content -->
     <main role="main" class="container">
@@ -40,17 +18,7 @@
         </div>
       </div>
       <div class="row">
-        <!-- Begin add book widget -->
-        <div class="col-sm-6 widgetBackground">
-          <div class="row">
-            <a href="{% url 'add_book' %}" ><img class="float-left" src="https://img.icons8.com/color/48/000000/add.png"></a>
-          </div>
-            <ul>
-              <li>record</li>
-              <li>record</li>
-            </ul>
-        </div>
-        <!-- End add book widget -->
+        
       </div>
       <div class="row">
         <div class="col-sm-4">

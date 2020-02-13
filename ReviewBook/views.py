@@ -4,9 +4,16 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import logout as log_out
 from django.contrib.auth.forms import UserCreationForm
 from ReviewBook.forms import SignUpForm
+from dashboard.models import Book
 
 def index(request):
-    return render(request, 'index.html')
+    try:
+        books = Book.objects.all()
+    except:
+        books = None
+    return render(request, 'index.html',{
+        'books':books
+        })
 
 def login(request):
     if request.user.is_authenticated: #if auth then redirect to dashboard

@@ -4,26 +4,7 @@
 <link rel="stylesheet" type="text/css" href='{% static "css/dashboard.css" %}'>
 <body>
 
-    <header>
-      <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">ReviewBook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'dashboard' %}">Home</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-            </li>
-          </ul>
-            <a href="{% url 'logout' %}" class="btn btn-outline-success my-2 my-sm-0"> logout</a>
-        </div>
-      </nav>
-    </header>
+    {% include "navbar_dash.html" %}
 
     <!-- Begin page content -->
     <main role="main" class="container">
@@ -35,7 +16,10 @@
           <h3 class="text-center">Book Details</h3>
           <form action="{% url 'add_book' %}" method="POST">
             {% csrf_token %}
-            {{ form }}
+            <label>{{ form.title.label }}:</label>{{ form.title }}
+            <label>{{ form.author.label}}:</label>{{ form.author}}
+            <label>{{ form.genre.label}}:</label>{{ form.genre}}
+            <input type="hidden" value="{{ user }}" name="user" value="Default" id="id_user">
             <button class="btn btn-outline-light btn-lg btn-block mt-2" type="submit">Add Book</button>
           </form>
         </div>
