@@ -37,7 +37,7 @@
               {% for book in books%}
               <tr>
                 <th scope="row">{{ forloop.counter }}</th>
-                <td>{{ book.title }}</td>
+                <td><a href="{% url 'book_profile' book.title %}">{{ book.title }}</a></td>
                 <td>{{ book.author }}</td>
                 <td>{{ book.genre }}</td>
               </tr>

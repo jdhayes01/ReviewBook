@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+<link rel="stylesheet" type="text/css" href='{% static "css/dashboard.css" %}'>
+<body>
+
+    {% include "navbar_dash.html" %}
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <!-- Begin add book widget -->
+      <div class="row mt-5">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6 formField formBackground">
+          <h3 class="text-center">Book Details</h3>
+          <form action="{% url 'book_profile' book_title %}" method="POST">
+            {% csrf_token %}
+            <label>{{ form.title.label }}:</label>{{ form.title }}
+            <label>{{ form.author.label}}:</label>{{ form.author}}
+            <label>{{ form.genre.label}}:</label>{{ form.genre}}
+            <label>{{ form.rating.label}}:</label>{{ form.rating}}
+            <label>{{ form.review_desc.label}}:</label>{{ form.review_desc}}
+            <button class="btn btn-outline-light btn-lg btn-block mt-2" type="submit">Edit Book</button>
+          </form>
+        </div>
+        <div class="col-sm-3">
+        </div> 
+      </div>
+      <!-- End add book widget -->
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">ReviewBook</span>
+      </div>
+    </footer>
+
+    
+  </body>
+
+{% endblock %}

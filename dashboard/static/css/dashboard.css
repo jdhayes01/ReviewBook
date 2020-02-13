@@ -50,6 +50,23 @@ code {
   text-decoration-color: white;
 }
 
+textarea{
+  width: 100%;
+  height: 120px;
+  border: 3px solid #cccccc;
+  padding: 5px;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+}
+
+input, select{
+  border-radius: 15px;
+  border: 3px solid #cccccc;
+  width: 100%;
+}
+
+
 .formBackground{
   background-color: #1466a8; /*#28A745*/
   border-radius: 25px;

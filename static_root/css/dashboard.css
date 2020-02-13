@@ -40,7 +40,7 @@ code {
   text-align: center;
 }
 
-.formField input,select{
+.formField input,select, textarea{
   background-color: #eee;
   border: none;
   padding: 12px 15px;
@@ -67,7 +67,7 @@ code {
   color: white;
 }
 
-.widgetBackground p, h3, h4, hr, label, table{
+.widgetBackground p, h3, h4, hr, label{
   color: white;
 }
 
@@ -82,4 +82,8 @@ code {
   height: 100%;
   text-align: center;
   box-shadow: 10px 10px 5px grey;
+}
+
+.widgetBackground table{
+  border-radius: 25px;
 }
