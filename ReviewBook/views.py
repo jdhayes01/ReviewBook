@@ -5,14 +5,17 @@ from django.contrib.auth import logout as log_out
 from django.contrib.auth.forms import UserCreationForm
 from ReviewBook.forms import SignUpForm
 from dashboard.models import Book
+from django.db.models import Count
 
 def index(request):
     try:
-        books = Book.objects.all()
+        books = Book.objects.values('title', 'author').annotate(title_count=Count('*')).order_by('-title_count')
     except:
         books = None
+    auth = request.user.is_authenticated
     return render(request, 'index.html',{
-        'books':books
+        'books':books,
+        'auth':auth
         })
 
 def login(request):

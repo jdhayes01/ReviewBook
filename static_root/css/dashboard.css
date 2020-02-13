@@ -51,7 +51,7 @@ code {
 }
 
 .formBackground{
-  background-color: #5bba71; /*#28A745*/
+  background-color: #1466a8; /*#28A745*/
   border-radius: 25px;
   display: flex;
   align-items: center;
@@ -67,11 +67,16 @@ code {
   color: white;
 }
 
+.widgetBackground p, h3, h4, hr, label, table{
+  color: white;
+}
+
 .widgetBackground{
-  background-color: #5bba71; /*#28A745*/
+  background-color: #1466a8; /*#28A745*/
   border-radius: 25px;
   display: flex;
   align-items: center;
+  padding: 20px 40px;
   justify-content: center;
   flex-direction: column;
   height: 100%;
