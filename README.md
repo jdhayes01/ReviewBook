@@ -15,10 +15,10 @@ Book review web application built mainly in Django, bootstrap, and mySQL.
 ### Book list
   * Users can view their own list of books -- COMPLETED
   * Users can add books to their list -- COMPLETED
-  * Users can update the books on their list
+  * Users can update the books on their list -- COMPLETED
   * Users can remove books from their list
-  * Users can rate their books on a scale of 1 to 5
-  * A list of books can only be viewed by its owner
+  * Users can rate their books on a scale of 1 to 5 -- COMPLETED
+  * A list of books can only be viewed by its owner -- COMPLETED
 ### Dashboard
   * The dashboard displays the top 5 highest rated books
   * The dashboard displays the top 5 most read books -- COMPLETED
