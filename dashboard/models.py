@@ -25,7 +25,7 @@ class Book(models.Model):
 	user = models.CharField('user', max_length=120, default='Default')
 	created_at = models.DateTimeField(auto_now_add=True)
 	rating = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)])
-	review_desc =models.TextField(default='Enter Description Here')
+	review_desc =models.TextField(default='-- no description --')
 
 	def __str__(self):
 		return self.title

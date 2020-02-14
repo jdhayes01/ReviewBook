@@ -12,12 +12,19 @@ from django.http import HttpResponse
 def dashboard(request):
     username = request.user
     try:
-        books = Book.objects.all().filter(user=username)
+        books = Book.objects.all().filter(user=username)[:5]
     except:
         books = None
+
+    try:
+        ratedbooks = Book.objects.all().filter(user=username).order_by('-rating')[:5]
+    except:
+        ratedbooks = None
+
     return render(request, 'dashboard.html', {
         'name':username,
-        'books':books
+        'books':books,
+        'ratedbooks':ratedbooks
         })
 @login_required
 def change_pass(request):

@@ -19,7 +19,7 @@
       </div>
       <div class="row">
         <!-- Begin add book widget -->
-        <div class="col-sm-6 widgetBackground">
+        <div class="col-sm-5 widgetBackground">
           <div class="row">
             <h3>{{ name }}'s Library:</h3>
           </div>
@@ -56,17 +56,39 @@
               </div>
             </div>
         </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-6 widgetBackground">
+          <div class="row">
+            <h3>{{ name }}'s Ratings:</h3>
+          </div>
+            {% if ratedbooks is not None %}
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Review/Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for book in ratedbooks%}
+              <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td><a href="{% url 'book_profile' book.title %}">{{ book.title }}</a></td>
+                <td>{{ book.rating }}</td>
+                <td>{{ book.review_desc }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+           {% else %}
+               <p>no books</p>
+            {% endif %} 
+        </div>
         <!-- End add book widget -->
       </div>
     </main>
-
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">ReviewBook</span>
-      </div>
-    </footer>
-
-    
   </body>
 
 {% endblock %}
