@@ -4,7 +4,9 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from dashboard.models import Book
-from dashboard.forms import BookForm, EditBookForm\
+from dashboard.forms import BookForm, EditBookForm
+import csv
+from django.http import HttpResponse
 
 @login_required
 def dashboard(request):
@@ -82,3 +84,15 @@ def delete_book(request, *args, **kwargs):
     book = Book.objects.get(title=bookTitle, user=request.user)
     book.delete()
     return redirect('dashboard')
+
+@login_required
+def dwnld_csv(request):
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="ReviewBook.csv"'
+    userbooks = Book.objects.all().filter(user=request.user)
+    writer = csv.writer(response)
+    writer.writerow(['Book ID', 'Title', 'Author', 'Genre', 'Timestamp', 'Rating', 'Review/Description'])
+    for book in userbooks:
+         writer.writerow([book.book_id, book.title, book.author, book.genre, book.created_at, book.rating, book.review_desc])
+    return response
