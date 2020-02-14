@@ -2,16 +2,16 @@
 Book review web application built mainly in Django, bootstrap, and mySQL.
 
 ## Goals for Basic Structure
-  * Configure Django project and connect mySQLDB -- COMPLETE
-  * Add authorization to project -- COMPLETE
-  * Create Basic UI in Bootstrap -- COMPLETE
-  * Create appropriate DB tables and basic DB structure -- COMPLETE
+  * Configure Django project and connect mySQLDB -- COMPLETED
+  * Add authorization to project -- COMPLETED
+  * Create Basic UI in Bootstrap -- COMPLETED
+  * Create appropriate DB tables and basic DB structure -- COMPLETED
 
 ## Required Features From Doc
 ### Account management
   * Users can create an account --COMPLETED
   * Users can log in -- COMPLETED
-  * Users can reset their password -- TBC -- Add email service
+  * Users can reset their password -- COMPLETED
 ### Book list
   * Users can view their own list of books -- COMPLETED
   * Users can add books to their list -- COMPLETED
@@ -24,4 +24,10 @@ Book review web application built mainly in Django, bootstrap, and mySQL.
   * The dashboard displays the top 5 most read books -- COMPLETED
   * The dashboard displays the 5 books added most recently -- COMPLETED
   * Both visitors and authenticated users can view the dashboard -- COMPLETED
+  
+## Product Road Map
+  * Imporved UI -- IN PROGRESS
+  * Deploy Application
+  * Add Social Features
+  * CSV Export -- COMPLETED
 
