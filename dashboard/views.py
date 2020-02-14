@@ -17,7 +17,7 @@ def dashboard(request):
         'name':username,
         'books':books
         })
-
+@login_required
 def change_pass(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
@@ -33,7 +33,7 @@ def change_pass(request):
     return render(request, 'change_password.html', {
         'form': form
     })
-
+@login_required
 def add_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
@@ -48,13 +48,13 @@ def add_book(request):
         'form': form,
         'user':request.user
     })
-
+@login_required
 def user_profile(request):
     user = request.user
     return render(request, 'user_profile.html', {
-        'name':user
+        'user':user
         })
-
+@login_required
 def book_profile(request, *args, **kwargs):
     bookTitle = kwargs['book_title']
     book = Book.objects.get(title=bookTitle, user=request.user)
@@ -76,7 +76,7 @@ def book_profile(request, *args, **kwargs):
         'form': form,
         'book_title':book.title
     })
-
+@login_required
 def delete_book(request, *args, **kwargs):
     bookTitle = kwargs['book_title']
     book = Book.objects.get(title=bookTitle, user=request.user)

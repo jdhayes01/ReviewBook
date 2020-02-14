@@ -80,7 +80,7 @@ input, select{
   box-shadow: 10px 10px 5px grey;
 }
 
-.formBackground h3, label{
+.formBackground h3, label, ul, li{
   color: white;
 }
 
