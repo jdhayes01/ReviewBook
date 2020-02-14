@@ -28,4 +28,4 @@ class Book(models.Model):
 	review_desc =models.TextField(default='Enter Description Here')
 
 	def __str__(self):
-		return self.name
+		return self.title
