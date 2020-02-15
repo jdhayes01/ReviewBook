@@ -4,9 +4,8 @@
 <link rel="stylesheet" type="text/css" href='{% static "css/dashboard.css" %}'>
 <body>
 
-    {% include "navbar_dash.html" %}
-
     <!-- Begin page content -->
+    {% include "navbar_dash.html" %}
     <main role="main" class="container">
       <div class="row">
         <div class="col-sm-3">
@@ -18,7 +17,7 @@
         </div>
       </div>
       <div class="row">
-        <!-- Begin add book widget -->
+        <!-- Begin user library widget -->
         <div class="col-sm-5 widgetBackground">
           <div class="row">
             <h3>{{ name }}'s Library:</h3>
@@ -56,6 +55,8 @@
               </div>
             </div>
         </div>
+        <!-- End user library widget -->
+        <!-- Begin user rating widget -->
         <div class="col-sm-1"></div>
         <div class="col-sm-6 widgetBackground">
           <div class="row">
@@ -86,7 +87,7 @@
                <p>no books</p>
             {% endif %} 
         </div>
-        <!-- End add book widget -->
+        <!-- End user rating widget -->
       </div>
     </main>
   </body>

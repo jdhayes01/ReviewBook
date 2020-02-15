@@ -1,7 +1,7 @@
 from django.db import models
-from datetime import datetime
-from django.core.validators import MaxValueValidator, MinValueValidator
-# Create your models here.
+from datetime import datetime #used for creation timestamp created_at
+from django.core.validators import MaxValueValidator, MinValueValidator #used to set value limits on rating
+
 #All books added by users stored as unique records
 class Book(models.Model):
 	#variables for genre choices

@@ -7,7 +7,7 @@
 
     <div class="welcomePage container main-content" id="container">
         <div class="form-container sign-up-container">
-
+            <!-- Sign Up Form -->
             <form id="newAccountContact-form" method="post" action="{% url 'signup' %}">
                 <h6>Sign Up</h6>  
                 <h3>ReviewBook</h3>
@@ -23,6 +23,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
+            <!-- Log In Form -->
             <form method="post" class="welcome_left">
                 <h6>Log In</h6>  
                 <h3>ReviewBook</h3>
@@ -35,6 +36,7 @@
                 <a href="/auth/password_reset/">Password Reset</a>
             </form>
         </div>
+        <!-- Overlay Slider -->
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
@@ -48,7 +50,7 @@
             </div>
         </div>
     </div>
-
+    <!-- Simple JS for slider animation -->
     <script>
         // Welcome Page Login/Signup Sliding Triggers
         const signUpButton = document.getElementById('signUp');

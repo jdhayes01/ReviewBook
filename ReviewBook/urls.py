@@ -19,13 +19,13 @@ from ReviewBook import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('auth/', include('django.contrib.auth.urls')),
-    path('', views.index, name='index'),
-    path('login/', views.login, name='login'),
-    path('dashboard/', include('dashboard.urls')),
-    path('logout/', views.logout, name='logout'),
-    path('signup/', views.signup, name='signup'),
+    path('admin/', admin.site.urls), #django admin
+    path('auth/', include('django.contrib.auth.urls')), #django autho
+    path('', views.index, name='index'), #index/home dashboard
+    path('login/', views.login, name='login'), #login portal
+    path('dashboard/', include('dashboard.urls')), #user dashboard
+    path('logout/', views.logout, name='logout'), 
+    path('signup/', views.signup, name='signup'),#signup form
 ]
 
-urlpatterns += staticfiles_urlpatterns()
+urlpatterns += staticfiles_urlpatterns() 
