@@ -25,7 +25,7 @@ SECRET_KEY = 'ex)1rxlw)3rek-!kzr(z5cy+)wr%u#el2skwyukodxm8l=2ha2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['reviewbook-env.gqg8mcrbzq.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -123,10 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [ 
     os.path.join(BASE_DIR, 'dashboard/static'),
-    os.path.join(BASE_DIR, 'static')
 
 ]
 
