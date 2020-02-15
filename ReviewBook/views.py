@@ -14,12 +14,12 @@ def index(request):
         books = None
         
     try:
-        ratedBooks = Book.objects.all().order_by('-rating')[:5]
+        ratedBooks = Book.objects.values('title', 'author', 'rating').annotate(title_count=Count('*')).order_by('-rating')[:5]
     except:
         ratedBooks = None
 
     try:
-        recentBooks =  Book.objects.all().order_by('-created_at')[:5]
+        recentBooks =  Book.objects.all().annotate(title_count=Count('*')).order_by('-created_at')[:5]
     except:
         recentBooks = None
         
