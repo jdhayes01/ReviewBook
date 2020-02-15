@@ -23,7 +23,7 @@ http://reviewbook-env.gqg8mcrbzq.us-west-2.elasticbeanstalk.com/
   * The dashboard displays the 5 books added most recently
   * Both visitors and authenticated users can view the dashboard
 ### Extra Features
-  * Deploy Application - This application is deployed in AWS Elastic Beanstalk and the mySQL DB is in AWS RDS.
-  * CSV Export - This application has a CSV download within the user dashboard. Implemented using the Python CSV library.
+  * Deploy Application - This application is deployed in AWS Elastic Beanstalk and the mySQL DB is in AWS RDS. Users can't access the application otherwise so I thought deploying the app was very important.
+  * CSV Export - This application has a CSV download within the user dashboard. Implemented using the Python CSV library. Users needed an option to export their book list if they start to collect a large amount of books.
   * Unit Testing - Unit test are important especially for an MVP to set a strong foundation within the code base. So using django.test.TestCase, I wrote unit tests for model, views, and forms within the dashboard application.
 
