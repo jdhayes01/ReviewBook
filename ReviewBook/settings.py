@@ -25,7 +25,7 @@ SECRET_KEY = 'ex)1rxlw)3rek-!kzr(z5cy+)wr%u#el2skwyukodxm8l=2ha2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['reviewbook-env.gqg8mcrbzq.us-west-2.elasticbeanstalk.com', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
