@@ -1,8 +1,6 @@
 # ReviewBook
-A web application built in Django that allows users to track and rate the books they've read. This project had specified requirements by SpaceBase for their interview process. This project meets the basic requirements along with 3 "Road Map" features using Bootstrap, Django, mySQL, and deployed in an AWS Elastic Beanstalk environment.
-
-http://reviewbook-env.gqg8mcrbzq.us-west-2.elasticbeanstalk.com/
-
+A web application built in Django that allows users to track and rate the books they've read.  
+Stack: Bootstrap, Django, mySQL, and deployed in an AWS Elastic Beanstalk environment.
 ## ReviewBook Features
 ### Account management
   * Users can create an account 
